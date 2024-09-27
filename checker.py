@@ -1,3 +1,6 @@
+"""
+Just a simple password checker
+"""
 import re
 print("Hello there! I am a password checker!")
 print("How many characters does your password need to contain?")
@@ -18,9 +21,11 @@ print("Give me a moment, testing your password...")
 
 
 def length_check(password, chars_needed):
+    """Checks the length of the password"""
     return len(password) >= chars_needed
 
 def count_chars(password):
+    """returns the number of chars in the password"""
     numbers = re.findall(r"\d", password)
     special_chars = re.findall(r"[^\w\s]", password)
 
@@ -30,16 +35,19 @@ def count_chars(password):
     }
 
 def number_check(password, no_num_needed):
+    """checks if the amount of numbers passes"""
     char_count = count_chars(password)
     num = char_count["num"]
     return num >= no_num_needed
 
 def special_check(password, special_chars_needed):
+        """checks if the amount of special characters passes"""
     char_count = count_chars(password)
     special_char_count = char_count["special_chars"]
     return special_char_count >= special_chars_needed
 
 def run_checks(password, chars_needed, no_num_needed, special_chars_needed):
+        """Method to run all the checks"""
     checks = [
         ("length check", length_check(password, chars_needed)),
         ("number check", number_check(password, no_num_needed)),
