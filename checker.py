@@ -1,5 +1,4 @@
 """Just a simple password checker"""
-import re
 print("Hello there! I am a password checker!")
 print("How many characters does your password need to contain?")
 chars_needed = int(input())
