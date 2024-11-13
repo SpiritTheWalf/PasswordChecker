@@ -1,3 +1,5 @@
+import re
+
 """Just a simple password checker"""
 print("Hello there! I am a password checker!")
 print("How many characters does your password need to contain?")
@@ -37,6 +39,19 @@ def number_check(password, no_num_needed):
     num = char_count["num"]
     return num >= no_num_needed
 
+def vowel_check(password):
+    vowel_count = 0
+    const_count = 0
+    for letter in password.lower():
+        if letter == ["a", "e", "i", "o", "u"]:
+            vowel_count = vowel_count + 1
+            print(vowel_count)
+        else:
+            const_count = const_count + 1
+
+    print(f"Your password contains {vowel_count} vowels")
+    print(f"Your password containst {const_count} constenants")
+
 def special_check(password, special_chars_needed):
     """checks if the amount of special characters passes"""
     char_count = count_chars(password)
@@ -62,4 +77,5 @@ def run_checks(password, chars_needed, no_num_needed, special_chars_needed):
     else:
         print("Please update your password to meet the requirements.")
 
+vowel_check(password)
 run_checks(password, chars_needed, no_num_needed, special_chars_needed)
